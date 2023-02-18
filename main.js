@@ -1,5 +1,6 @@
 const searchBox = document.getElementById('search-box');
 const dataTable = document.getElementById('data-table');
+const moreButton = document.getElementById('more-button');
 
 // Gunakan fetch API untuk memuat data dari file JSON secara asinkron
 fetch('data.json')
@@ -9,7 +10,18 @@ fetch('data.json')
     searchBox.addEventListener('input', () => {
       const searchTerm = searchBox.value.toLowerCase();
       const matchingData = data.filter(item => item.kata.toLowerCase().startsWith(searchTerm));
+      populateTable(matchingData.slice(0, 5));
+      if (matchingData.length > 5) {
+        moreButton.style.display = 'block';
+      } else {
+        moreButton.style.display = 'none';
+      }
+    });
+    moreButton.addEventListener('click', () => {
+      const searchTerm = searchBox.value.toLowerCase();
+      const matchingData = data.filter(item => item.kata.toLowerCase().startsWith(searchTerm));
       populateTable(matchingData);
+      moreButton.style.display = 'none';
     });
   })
   .catch(error => console.error(error));
@@ -21,70 +33,15 @@ function populateTable(data) {
   data.forEach(item => {
     html += `<tr><td>${item.kata}</td><td>${item.deskripsi}</td></tr>`;
   });
-  
+
   dataTable.innerHTML = html;
 }
 
-// Ambil elemen input pencarian
-const searchBox = document.getElementById('search-box');
-
 // Tambahkan event listener untuk memantau perubahan pada input pencarian
-searchBox.addEventListener('input', function() {
-  // Ambil nilai input pencarian
-  const searchValue = this.value.toLowerCase();
-
-  // Cek apakah nilai input pencarian kosong
-  if (searchValue === '') {
-    // Kosongkan tabel pencarian
-    const searchResults = document.getElementById('search-results');
-    searchResults.innerHTML = '';
-  } else {
-    // Lakukan pencarian
-    const matchingData = data.filter(item => item.kata.toLowerCase().startsWith(searchValue));
-
-    // Tampilkan hasil pencarian dalam tabel
-    const searchResults = document.getElementById('search-results');
-    searchResults.innerHTML = '';
-
-    matchingData.forEach(item => {
-      const row = document.createElement('tr');
-      const wordCell = document.createElement('td');
-      const definitionCell = document.createElement('td');
-      wordCell.textContent = item.kata;
-      definitionCell.textContent = item.definisi;
-      row.appendChild(wordCell);
-      row.appendChild(definitionCell);
-      searchResults.appendChild(row);
-    });
+searchBox.addEventListener('input', () => {
+  const searchTerm = searchBox.value.toLowerCase();
+  if (searchTerm === '') {
+    dataTable.innerHTML = '';
+    moreButton.style.display = 'none';
   }
 });
-
-
-// Tambahkan baris ke tabel untuk setiap hasil pencarian
-if (matchingData.length > 0) {
-  let resultCount = 0;
-  matchingData.forEach(item => {
-    // Hanya tampilkan maksimal 5 hasil pencarian
-    if (resultCount < 5) {
-      const row = table.insertRow(-1);
-      const wordCell = row.insertCell(0);
-      const definitionCell = row.insertCell(1);
-      wordCell.innerHTML = item.kata;
-      definitionCell.innerHTML = item.arti;
-      resultCount++;
-    }
-  });
-
-  // Tampilkan tulisan "more" jika ada lebih dari 5 hasil pencarian
-  if (matchingData.length > 5) {
-    const moreRow = table.insertRow(-1);
-    const moreCell = moreRow.insertCell(0);
-    moreCell.colSpan = 2;
-    moreCell.innerHTML = "more";
-  }
-} else {
-  const row = table.insertRow(-1);
-  const noResultCell = row.insertCell(0);
-  noResultCell.colSpan = 2;
-  noResultCell.innerHTML = "No matching results";
-}
