@@ -22,20 +22,42 @@ function populateTable(data) {
     html += `<tr><td>${item.kata}</td><td>${item.deskripsi}</td></tr>`;
   });
   
-  } else {
-          // Sembunyikan tabel jika tidak ada hasil pencarian
-          searchResultsTable.classList.add('hidden');
-        }
-      } else {
-        // Sembunyikan tabel jika kotak pencarian kosong
-        searchResultsTable.classList.add('hidden');
-      }
-  }
-  // Panggil fungsi search() setiap kali isi kotak pencarian berubah
-  searchBox.addEventListener('input', search);
-
   dataTable.innerHTML = html;
 }
+
+// Ambil elemen input pencarian
+const searchInput = document.getElementById('search-input');
+
+// Tambahkan event listener untuk memantau perubahan pada input pencarian
+searchInput.addEventListener('input', function() {
+  // Ambil nilai input pencarian
+  const searchValue = this.value.toLowerCase();
+
+  // Cek apakah nilai input pencarian kosong
+  if (searchValue === '') {
+    // Kosongkan tabel pencarian
+    const searchResults = document.getElementById('search-results');
+    searchResults.innerHTML = '';
+  } else {
+    // Lakukan pencarian
+    const matchingData = data.filter(item => item.kata.toLowerCase().startsWith(searchValue));
+
+    // Tampilkan hasil pencarian dalam tabel
+    const searchResults = document.getElementById('search-results');
+    searchResults.innerHTML = '';
+
+    matchingData.forEach(item => {
+      const row = document.createElement('tr');
+      const wordCell = document.createElement('td');
+      const definitionCell = document.createElement('td');
+      wordCell.textContent = item.kata;
+      definitionCell.textContent = item.definisi;
+      row.appendChild(wordCell);
+      row.appendChild(definitionCell);
+      searchResults.appendChild(row);
+    });
+  }
+});
 
 
 // Tambahkan baris ke tabel untuk setiap hasil pencarian
