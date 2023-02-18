@@ -26,10 +26,10 @@ function populateTable(data) {
 }
 
 // Ambil elemen input pencarian
-const searchInput = document.getElementById('search-input');
+const searchBox = document.getElementById('search-box');
 
 // Tambahkan event listener untuk memantau perubahan pada input pencarian
-searchInput.addEventListener('input', function() {
+searchBox.addEventListener('input', function() {
   // Ambil nilai input pencarian
   const searchValue = this.value.toLowerCase();
 
