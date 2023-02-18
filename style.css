@@ -36,3 +36,7 @@
   .more-cell:hover {
     text-decoration: underline;
   }
+
+ .hidden {
+        display: none;
+      }
