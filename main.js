@@ -31,7 +31,7 @@ function populateTable(data) {
 
   // jika hasil lebih dari 5, tampilkan pesan "read more"
   if (data.length > 5) {
-    html += `<tr><td colspan="2" class="read-more">read more</td></tr>`;
+    html += `<tr><td colspan="2" class="more-cell">lihat lebih banyak</td></tr>`;
   }
 
   dataTable.innerHTML = html;
