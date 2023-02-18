@@ -21,6 +21,18 @@ function populateTable(data) {
   data.forEach(item => {
     html += `<tr><td>${item.kata}</td><td>${item.deskripsi}</td></tr>`;
   });
+  
+  } else {
+          // Sembunyikan tabel jika tidak ada hasil pencarian
+          searchResultsTable.classList.add('hidden');
+        }
+      } else {
+        // Sembunyikan tabel jika kotak pencarian kosong
+        searchResultsTable.classList.add('hidden');
+      }
+  }
+  // Panggil fungsi search() setiap kali isi kotak pencarian berubah
+  searchBox.addEventListener('input', search);
 
   dataTable.innerHTML = html;
 }
