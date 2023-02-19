@@ -1,3 +1,96 @@
+/* css sebelumnya */
+/*header*/
+.head{
+  top: 35px;
+  left: 0;
+  position: fixed;
+  background-image: url(https://1.bp.blogspot.com/-QPe_Ez57Ucw/YMg19x6SPnI/AAAAAAAAB7E/01EmwBu-8_QmWk3yhv-Pt73-dENEcnx7ACLcBGAsYHQ/s0/bg.jpg);
+  background-repeat: repeat;
+  height: 50px;
+  width: 100%;
+  box-shadow: 8px 10px 8px 0 rgba(5, 0, 0, 0.808);
+}
+/*head logo*/
+.mylogo{
+  float: center;
+  top: 0;
+  width: 50%;
+  height: 40px;
+}
+
+/*headermenu*/
+.headermenu{
+  left: 0;
+  right: 0;
+  top: 0;
+  display: block;
+  max-width: 100%;
+  overflow: scroll;
+  overflow-y: hidden;
+  position: fixed;
+  z-index: 5;
+  background: #fff;
+  height: 35px;
+  line-height: 12.5px;
+  font-size: 13px;
+  font-weight: 500;
+}
+.headermenu ul{
+  width: max-content;
+  margin: 0 0 0 5px;
+}
+.headermenu ul li{
+  float: left;
+  font-size: 14px;
+  padding: 6px 8px;
+  display: block;
+  text-align:center;
+  text-transform:uppercase;
+}
+ .headermenu ul li a:hover {
+   color:#05fd1a;
+   border-bottom:2px solid #05fd1a;
+}
+ .headermenu ul li a {
+   color:#444;
+   padding: 8px 5px;
+   text-decoration: none;
+}
+ .headermenu ul li.satu1 {
+   font-size: 10px;
+   width: 110px;
+   position:fixed;
+   left:-1px;
+   padding-bottom: 15px;
+   background-color: white;
+}
+ .headermenu ul li.satu1 span {
+   background: #444;
+   padding:11.5px 10.5px 10px;
+   color:#fff;
+   vertical-align: -6px;
+   }
+.headermenu ul li.satu1:after {
+   content:'';
+   display:inline-block;
+   position:absolute;
+   border-left:12px solid #444;
+   border-top:8px solid transparent;
+   border-bottom:8px solid transparent;
+   right:-10px;
+   top:4px;
+}
+@media screen and (max-width: 640px) {
+.headermenu {
+   display:block;
+}
+}
+@media only screen and (max-width:640px) {
+#wrapper {
+   padding: 100px 15px 15px;
+}
+}
+
 /* Gaya untuk kotak pencarian */
 .search-box {
     margin-bottom: 20px;
