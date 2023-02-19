@@ -1,9 +1,15 @@
 /* Gaya untuk kotak pencarian */
 .search-box {
-    margin-bottom: 10px;
-    width: fit-content;
-    padding: 10px;
-    font-size: 14pt;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    font-size: 12pt;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    font-family: vimala;
   }
   /* Gaya untuk tabel hasil pencarian */
   table {
@@ -23,6 +29,10 @@
   
   tr:nth-child(even) {
     background-color: #f2f2f2;
+  }
+td{
+    font-family: vimala;
+    font-size: 12pt;
   }
   
   /* Gaya untuk tulisan "more" */
