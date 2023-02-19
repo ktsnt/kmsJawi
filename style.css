@@ -99,7 +99,8 @@
 	font-family:vimala;
 	border:solid white 1px;	
 	box-shadow: 8px 10px 8px 0 rgba(5, 0, 0, 0.808);  
-  margin-left: 0;
+  margin-left: 0px;
+position: fixed;
   }
   /* Gaya untuk tabel hasil pencarian */
   table {
