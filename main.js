@@ -32,9 +32,9 @@ function populateTable(data) {
     }
   });
 
-  // jika hasil lebih dari 5, tampilkan pesan "read more"
-  if (data.length > 5) {
-    html += `<tr><td colspan="2" class="more-cell">lihat lebih banyak</td></tr>`;
+  // jika hasil lebih dari 25, tampilkan pesan "read more"
+  if (data.length > 25) {
+    html += `<tr><td colspan="2" class="more-cell">mohon lebih spesifik</td></tr>`;
   }
 
   dataTable.innerHTML = html;
