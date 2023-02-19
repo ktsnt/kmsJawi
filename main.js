@@ -27,7 +27,7 @@ function populateTable(data) {
   let html = '';
 
   data.forEach((item, index) => {
-    if (index < 5) {
+    if (index >= 1) {
       html += `<tr><td>${item.kata}<br/>${item.aksara}</td><td>${item.deskripsi}</td></tr>`;
     }
   });
