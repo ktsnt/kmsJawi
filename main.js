@@ -13,7 +13,10 @@ fetch('data.json')
         dataTable.innerHTML = '';
         return;
       }
-      const matchingData = data.filter(item => item.kata.toLowerCase().startsWith(searchTerm));
+      const matchingData = data.filter(item => 
+            item.kata.toLowerCase().startsWith(searchTerm) || 
+            item.aksara.toLowerCase().startsWith(searchTerm)
+            );
       populateTable(matchingData);
     });
   })
